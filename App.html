@@ -41,6 +41,49 @@
     <div class=" piece bp square-f7"></div>
     <div class=" piece bp square-g7"></div>
     <div class=" piece bp square-h7"></div>
-</div>
+
+    <!-- <div class=" previouspos square-d3"></div> -->
+    <div id="hint"></div>
+  </div>
+<script>
+  const allpieces = document.querySelectorAll('.piece');
+  const hint = document.getElementById('hint');
+  const clickedpiece = [];
+  const hints = [];
+  allpieces.forEach(element => {
+    element.addEventListener('click', ()=>{
+      const pieceposition = element.className.split(' ')[3];
+      const piececolor = element.className.split(' ')[2].split('')[0];
+      const piece = element.className.split(' ')[2].split('')[1];
+      const pieceandcolor = element.className.split(' ')[2]
+      const rank = parseInt(pieceposition.split('-')[1].split('')[1])
+      const file = pieceposition.split('-')[1].split('')[0]
+      // Prevent setting multiple colors
+      if (clickedpiece.length > 0) {
+        clickedpiece[0].removeAttribute("style");
+        clickedpiece.length = 0;
+      }
+      if (hints.length > 0) {
+        hints.length = 0;
+      }
+      element.style.backgroundColor = "rgba(255, 255, 0, 0.479)";
+      clickedpiece.push(element);
+      // White pawn rules
+      if (pieceandcolor == 'wp'){
+        if (rank == 2) {
+          console.log(hints)
+          hints.push(rank+1)
+          hints.push(rank+2);
+          hints.forEach(element => {
+            console.log(file+element);
+            hint.innerHTML += `<div class="hint square-${file+element}"><div class="hintdot"></div></div>`
+          });
+        }else{
+          // console.log('one step allowed');
+        }
+      }
+    })
+  });
+</script>
 </body>
 </html>

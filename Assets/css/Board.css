@@ -254,3 +254,25 @@
 .square-h8{
     transform: translate(700%);
 }
+.previouspos{
+    position: absolute;
+    display: block;
+    background-size: cover;
+    background-color: rgba(255, 255, 0, 0.479);
+    width: 68.75px;
+    height: 68.75px;
+}
+.hint{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 68.75px;
+    height: 68.75px;
+}
+.hintdot{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.158);
+}
