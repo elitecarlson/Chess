@@ -87,16 +87,24 @@
       clickedpiece.push(element);
       // White pawn rules
       if (pieceandcolor == 'wp'){
+        //Pawn on second rank rules
         if (rank == 2) { 
           const front = `square-${file}${rank+1}`;
+          const twostepsfront = `square-${file}${rank+2}`;
           const left = `square-${files[files.indexOf(file)-1]}`;
           const right = `square-${files[files.indexOf(file)+1]}`;
           const frontleft = `square-${files[files.indexOf(file)-1]}${rank+1}`;
           const frontright = `square-${files[files.indexOf(file)+1]}${rank+1}`;
           const pieceinfront = document.querySelector(`.${front}`);
-          const piecetwostepsinfront = document.querySelector(`square-${file}${rank+2}`);
+          const piecetwostepsinfront = document.querySelector(`.${twostepsfront}`);
           const piecetotheleft = document.querySelector(`.${frontleft}`);
           const piecetotheright = document.querySelector(`.${frontright}`);
+          if (piecetwostepsinfront != null) {
+              hints.push(rank+1);
+            }else{
+              hints.push(rank+1);
+              hints.push(rank+2);
+            }
           if (pieceinfront != null) {
             if (piecetotheleft != null){
               const piecetotheleftcolor = piecetotheleft.className.split(' ')[2].split('')[0];
@@ -147,12 +155,6 @@
                 takables.push('Takable active');
               }
             }
-            if (piecetwostepsinfront != null) {
-              hints.push(rank+2);
-            }else{
-              hints.push(rank+1);
-              hints.push(rank+2);
-            }
             hints.forEach(element => {
               hint.innerHTML += `<div class="hint square-${file+element}"><div class="hintdot"></div></div>`
               const allhints = document.querySelectorAll('.hint');
@@ -195,7 +197,8 @@
               });
             });
           }
-        }else{ 
+        }else{
+          // Pawn on any other rank rules 
           const front = `square-${file}${rank+1}`;
           const left = `square-${files[files.indexOf(file)-1]}`;
           const right = `square-${files[files.indexOf(file)+1]}`;
@@ -261,11 +264,16 @@
               allhints.forEach(hint => {
                 hint.addEventListener('click', ()=> {
                   const hintposition = hint.className.split(' ')[1];
-                  const newposition = ` piece ${pieceandcolor} ${hintposition}`
+                  const newposition = ` piece ${pieceandcolor} ${hintposition}`;
+                  const visibletakable = document.querySelectorAll('.takable');
+                  visibletakable.forEach(vistakable => {
+                    vistakable.remove()
+                  });
                   const visiblehints = document.querySelectorAll('.hint');
                   visiblehints.forEach(vishints => {
                     vishints.remove()
                   });
+                  takables.length = 0;
                   hints.length = 0;
                   clickedpiece[0].className = newposition;
                 })
