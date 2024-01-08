@@ -1,0 +1,253 @@
+.board{
+    position: relative;
+    height: 512px;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-image: url("../Boards-and-pieces/Board-Purple.png");
+}
+.square{
+    display: block;
+    position: absolute;
+    background-size: cover;
+    width: 64px;
+    height: 64px;
+    background-color: red;
+}
+/* Black Pieces */
+.bb{
+    background-image: url(../Boards-and-pieces/Pieces/bb.png);
+}
+.bk{
+    background-image: url(../Boards-and-pieces/Pieces/bk.png);
+}
+.bn{
+    background-image: url(../Boards-and-pieces/Pieces/bn.png);
+}
+.bp{
+    background-image: url(../Boards-and-pieces/Pieces/bp.png);
+}
+.bq{
+    background-image: url(../Boards-and-pieces/Pieces/bq.png);
+}
+.br{
+    background-image: url(../Boards-and-pieces/Pieces/br.png);
+}
+/* White Pieces */
+.wb{
+    background-image: url(../Boards-and-pieces/Pieces/wb.png);
+}
+.wk{
+    background-image: url(../Boards-and-pieces/Pieces/wk.png);
+}
+.wn{
+    background-image: url(../Boards-and-pieces/Pieces/wn.png);
+}
+.wp{
+    background-image: url(../Boards-and-pieces/Pieces/wp.png);
+}
+.wq{
+    background-image: url(../Boards-and-pieces/Pieces/wq.png);
+}
+.wr{
+    background-image: url(../Boards-and-pieces/Pieces/wr.png);
+}
+/* A file */
+.a1{
+    transform: translateY(700%);
+}
+.a2{
+    transform: translateY(600%);
+}
+.a3{
+    transform: translateY(500%);
+}
+.a4{
+    transform: translateY(400%);
+}
+.a5{
+    transform: translateY(300%);
+}
+.a6{
+    transform: translateY(200%);
+}
+.a7{
+    transform: translateY(100%);
+}
+.a8{
+    transform: translate(0);
+}
+/* B file */
+.b1{
+    transform: translate(100%,700%);
+}
+.b2{
+    transform: translate(100%,600%);
+}
+.b3{
+    transform: translate(100%,500%);
+}
+.b4{
+    transform: translate(100%,400%);
+}
+.b5{
+    transform: translate(100%,300%);
+}
+.b6{
+    transform: translate(100%,200%);
+}
+.b7{
+    transform: translate(100%,100%);
+}
+.b8{
+    transform: translate(100%);
+}
+/* C file */
+.c1{
+    transform: translate(200%,700%);
+}
+.c2{
+    transform: translate(200%,600%);
+}
+.c3{
+    transform: translate(200%,500%);
+}
+.c4{
+    transform: translate(200%,400%);
+}
+.c5{
+    transform: translate(200%,300%);
+}
+.c6{
+    transform: translate(200%,200%);
+}
+.c7{
+    transform: translate(200%,100%);
+}
+.c8{
+    transform: translate(200%);
+}
+/* D file */
+.d1{
+    transform: translate(300%,700%);
+}
+.d2{
+    transform: translate(300%,600%);
+}
+.d3{
+    transform: translate(300%,500%);
+}
+.d4{
+    transform: translate(300%,400%);
+}
+.d5{
+    transform: translate(300%,300%);
+}
+.d6{
+    transform: translate(300%,200%);
+}
+.d7{
+    transform: translate(300%,100%);
+}
+.d8{
+    transform: translate(300%);
+}
+/* E file */
+.e1{
+    transform: translate(400%,700%);
+}
+.e2{
+    transform: translate(400%,600%);
+}
+.e3{
+    transform: translate(400%,500%);
+}
+.e4{
+    transform: translate(400%,400%);
+}
+.e5{
+    transform: translate(400%,300%);
+}
+.e6{
+    transform: translate(400%,200%);
+}
+.e7{
+    transform: translate(400%,100%);
+}
+.e8{
+    transform: translate(400%);
+}
+/* F file */
+.f1{
+    transform: translate(500%,700%);
+}
+.f2{
+    transform: translate(500%,600%);
+}
+.f3{
+    transform: translate(500%,500%);
+}
+.f4{
+    transform: translate(500%,400%);
+}
+.f5{
+    transform: translate(500%,300%);
+}
+.f6{
+    transform: translate(500%,200%);
+}
+.f7{
+    transform: translate(500%,100%);
+}
+.f8{
+    transform: translate(500%);
+}
+/* G file */
+.g1{
+    transform: translate(600%,700%);
+}
+.g2{
+    transform: translate(600%,600%);
+}
+.g3{
+    transform: translate(600%,500%);
+}
+.g4{
+    transform: translate(600%,400%);
+}
+.g5{
+    transform: translate(600%,300%);
+}
+.g6{
+    transform: translate(600%,200%);
+}
+.g7{
+    transform: translate(600%,100%);
+}
+.g8{
+    transform: translate(600%);
+}
+/* H file */
+.h1{
+    transform: translate(700%,700%);
+}
+.h2{
+    transform: translate(700%,600%);
+}
+.h3{
+    transform: translate(700%,500%);
+}
+.h4{
+    transform: translate(700%,400%);
+}
+.h5{
+    transform: translate(700%,300%);
+}
+.h6{
+    transform: translate(700%,200%);
+}
+.h7{
+    transform: translate(700%,100%);
+}
+.h8{
+    transform: translate(700%);
+}
