@@ -1,7 +1,10 @@
+import { Route, Routes } from "react-router-dom";
+import Index from "./Pages/Index";
+
 export default function App(){
   return(
-    <>
-    <p>Hello world</p>
-    </>
+    <Routes>
+      <Route path="/" element={<Index/>}></Route>
+    </Routes>
   );
 }
