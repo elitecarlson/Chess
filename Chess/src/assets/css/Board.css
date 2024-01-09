@@ -2,6 +2,7 @@
     position: relative;
     height: 512px;
     aspect-ratio: 1 / 1;
+    border-radius: 8px;
     background-size: cover;
     background-image: url("../Boards-and-pieces/Board-Purple.png");
 }
@@ -11,7 +12,6 @@
     background-size: cover;
     width: 64px;
     height: 64px;
-    background-color: red;
 }
 /* Black Pieces */
 .bb{
@@ -250,4 +250,204 @@
 }
 .h8{
     transform: translate(700%);
+}
+/* Flipped A file*/
+.flipped-a1{
+    transform: translate(700%);
+}
+.flipped-a2{
+    transform: translate(700%,100%);
+}
+.flipped-a3{
+    transform: translate(700%,200%);
+}
+.flipped-a4{
+    transform: translate(700%,300%);
+}
+.flipped-a5{
+    transform: translate(700%,400%);
+}
+.flipped-a6{
+    transform: translate(700%,500%);
+}
+.flipped-a7{
+    transform: translate(700%,600%);
+}
+.flipped-a8{
+    transform: translate(700%, 700%);
+}
+/* Flipped B file */
+.flipped-b1{
+    transform: translate(600%);
+}
+.flipped-b2{
+    transform: translate(600%,100%);
+}
+.flipped-b3{
+    transform: translate(600%,200%);
+}
+.flipped-b4{
+    transform: translate(600%,300%);
+}
+.flipped-b5{
+    transform: translate(600%,400%);
+}
+.flipped-b6{
+    transform: translate(600%,500%);
+}
+.flipped-b7{
+    transform: translate(600%,600%);
+}
+.flipped-b8{
+    transform: translate(600%, 700%);
+}
+/* Flipped C file */
+.flipped-c1{
+    transform: translate(500%);
+}
+.flipped-c2{
+    transform: translate(500%,100%);
+}
+.flipped-c3{
+    transform: translate(500%,200%);
+}
+.flipped-c4{
+    transform: translate(500%,300%);
+}
+.flipped-c5{
+    transform: translate(500%,400%);
+}
+.flipped-c6{
+    transform: translate(500%,500%);
+}
+.flipped-c7{
+    transform: translate(500%,600%);
+}
+.flipped-c8{
+    transform: translate(500%,700%);
+}
+/* Flipped D file */
+.flipped-d1{
+    transform: translate(400%);
+}
+.flipped-d2{
+    transform: translate(400%,100%);
+}
+.flipped-d3{
+    transform: translate(400%,200%);
+}
+.flipped-d4{
+    transform: translate(400%,300%);
+}
+.flipped-d5{
+    transform: translate(400%,400%);
+}
+.flipped-d6{
+    transform: translate(400%,500%);
+}
+.flipped-d7{
+    transform: translate(400%,600%);
+}
+.flipped-d8{
+    transform: translate(400%,700%);
+}
+/* Flipped E file */
+.flipped-e1{
+    transform: translate(300%);
+}
+.flipped-e2{
+    transform: translate(300%,100%);
+}
+.flipped-e3{
+    transform: translate(300%,200%);
+}
+.flipped-e4{
+    transform: translate(300%,300%);
+}
+.flipped-e5{
+    transform: translate(300%,400%);
+}
+.flipped-e6{
+    transform: translate(300%,500%);
+}
+.flipped-e7{
+    transform: translate(300%,600%);
+}
+.flipped-e8{
+    transform: translate(300%,700%);
+}
+/* Flipped F file */
+.flipped-f1{
+    transform: translate(200%);
+}
+.flipped-f2{
+    transform: translate(200%,100%);
+}
+.flipped-f3{
+    transform: translate(200%,200%);
+}
+.flipped-f4{
+    transform: translate(200%,300%);
+}
+.flipped-f5{
+    transform: translate(200%,400%);
+}
+.flipped-f6{
+    transform: translate(200%,500%);
+}
+.flipped-f7{
+    transform: translate(200%,600%);
+}
+.flipped-f8{
+    transform: translate(200%,700%);
+}
+/* Flipped G file */
+.flipped-g1{
+    transform: translate(100%);
+}
+.flipped-g2{
+    transform: translate(100%,100%);
+}
+.flipped-g3{
+    transform: translate(100%,200%);
+}
+.flipped-g4{
+    transform: translate(100%,300%);
+}
+.flipped-g5{
+    transform: translate(100%,400%);
+}
+.flipped-g6{
+    transform: translate(100%,500%);
+}
+.flipped-g7{
+    transform: translate(100%,600%);
+}
+.flipped-g8{
+    transform: translate(100%,700%);
+}
+/* Flipped H file */
+.flipped-h1{
+    transform: translate(0);
+}
+.flipped-h2{
+    transform: translateY(100%);
+}
+.flipped-h3{
+    transform: translateY(200%);
+}
+.flipped-h4{
+    transform: translateY(300%);
+}
+.flipped-h5{
+    transform: translateY(400%);
+}
+.flipped-h6{
+    transform: translateY(500%);
+}
+.flipped-h7{
+    transform: translateY(600%);
+}
+.flipped-h8{
+    transform: translateY(700%);
 }
