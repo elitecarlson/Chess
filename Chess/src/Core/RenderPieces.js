@@ -1,5 +1,7 @@
+import { pieceClicked } from "./PieceClicked";
+import { files } from "./Constants";
+
 export function RenderPieces(board,startingPosition,flipped){
-    const files = ["a","b","c","d","e","f","g","h"];
     const pieceFEN = {
         "r" : "br",
         "n" : "bn",
@@ -22,23 +24,27 @@ export function RenderPieces(board,startingPosition,flipped){
             file = 0;
             rank--;
         }else{
+            // Checking if character is a number
             if(!isNaN(char)){
                 file += parseInt(char);
             }else{
                 const piecePosition = files[file]+rank;
                 const piece = pieceFEN[char];
 
+                // Setting classname on wether board is flipped or not.
                 let piececlassName
                 if (flipped) {
-                    piececlassName = `square flipped-${piecePosition} ${piece}`;
+                    piececlassName = `piece flipped-${piecePosition} ${piece}`;
                 }else{
-                    piececlassName = `square ${piecePosition} ${piece}`;
+                    piececlassName = `piece ${piecePosition} ${piece}`;
                 }
 
+                // Adding the piece to board
                 const pieceDiv = document.createElement("div");
+                pieceDiv.addEventListener('click', ()=>{pieceClicked(board)});
                 pieceDiv.className = piececlassName;
-                board.current.appendChild(pieceDiv)
-                file++
+                board.current.appendChild(pieceDiv);
+                file++;
             }
         }
     });

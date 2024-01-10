@@ -6,12 +6,32 @@
     background-size: cover;
     background-image: url("../Boards-and-pieces/Board-Purple.png");
 }
-.square{
+.piece{
     display: block;
     position: absolute;
     background-size: cover;
+    cursor: pointer;
     width: 64px;
     height: 64px;
+    transition: 0.3s;
+}
+.hint{
+    display: block;
+    position: absolute;
+    background-size: cover;
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(255, 0, 0, 0.514);
+}
+.selected{
+    display: block;
+    position: absolute;
+    background-size: cover;
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+    /* background-color: rgba(255, 251, 0, 0.514); */
 }
 /* Black Pieces */
 .bb{

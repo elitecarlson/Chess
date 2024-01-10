@@ -7,14 +7,13 @@ export default function Index(){
     const body = useRef();
     const board = useRef();
     const [flipped, setFlipped] = useState(false);
-    const [playingAs, setPlayingAs] = useState("white");
-    const [startingPosition, setStartingPosition] = useState("8/8/8/8/8/8/8/1B6 w - - 0 1")
+    const [startingPosition, setStartingPosition] = useState("8/8/8/8/8/8/8/R7 w - - 0 1")
     // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
     useEffect(()=>{
         RenderPieces(board,startingPosition,flipped);
     },[startingPosition]);
-
+    
     return(
         <>
         <div className="body" ref={body}>
