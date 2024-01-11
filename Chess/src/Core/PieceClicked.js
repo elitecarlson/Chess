@@ -1,5 +1,6 @@
 import { getValidRookMoves } from "./RookMovement";
 import { hideHints } from "./Constants";
+import { getValidBishopMoves } from "./BishopMovement";
 
 export function pieceClicked(board){
     const piecePosition = event.target.classList[1];
@@ -12,9 +13,10 @@ export function pieceClicked(board){
         hideHints();
     }else{
         selectedPiece.classList.add("selected");
-        // Check if piece is rook
         if (piece[1] == 'r') {
-            getValidRookMoves(piecePosition,piece,board);
+            getValidRookMoves(piecePosition,piece,board); //if piece is rook
+        }else if(piece[1] == 'b'){
+            getValidBishopMoves(piecePosition,piece,board); //if piece is bishop
         }
     }
 }

@@ -7,7 +7,7 @@ export default function Index(){
     const body = useRef();
     const board = useRef();
     const [flipped, setFlipped] = useState(false);
-    const [startingPosition, setStartingPosition] = useState("8/8/8/8/8/8/8/R7 w - - 0 1")
+    const [startingPosition, setStartingPosition] = useState("1r3Q2/8/2b2nP1/8/5p2/8/2R3N1/8 w - - 0 1")
     // rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
     useEffect(()=>{
