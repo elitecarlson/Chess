@@ -1,5 +1,4 @@
 import { files, renderHints } from "./Constants";
-import { hints } from "./Constants";
 
 export function getValidRookMoves(position,piece,board) {
     const startX = files.indexOf(position[0]);
@@ -26,14 +25,12 @@ export function getValidRookMoves(position,piece,board) {
                 // Checking if piece is opponent
                 if (document.querySelector(`.${currentPosition}`).className.split(" ")[2][0] != pieceColor) {
                     validMoves.push(currentPosition);
-                    hints.push(currentPosition);
                 }
                 // Stop if piece is opponent
                 break;
             }
             // If there is no piece in the way keep adding till limit of board
             validMoves.push(currentPosition);
-            hints.push(currentPosition);
     
             x += direction.xIncrement;
             y += direction.yIncrement;
