@@ -19,11 +19,12 @@ export function getValidRookMoves(position,piece,board) {
 
         while (x >= 0 && x < 8 && y >= 0 && y < 8) {
             const currentPosition = files[x] + (y + 1);
+            const targetPiece = document.querySelector(`.${currentPosition}`);
             
             // Runs when there is piece in the way
-            if (document.querySelector(`.${currentPosition}`) != null) {
+            if (targetPiece != null) {
                 // Checking if piece is opponent
-                if (document.querySelector(`.${currentPosition}`).className.split(" ")[2][0] != pieceColor) {
+                if (targetPiece.className.split(" ")[2][0] != pieceColor) {
                     validMoves.push(currentPosition);
                 }
                 // Stop if piece is opponent
