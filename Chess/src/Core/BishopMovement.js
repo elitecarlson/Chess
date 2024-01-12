@@ -27,7 +27,7 @@ export function getValidBishopMoves(position,piece,board){
                 if (targetPiece.className.split(" ")[2][0] != pieceColor) {
                     validMoves.push(currentPosition);
                 }
-                // Stop if piece is opponent
+                // Stop if piece is ours
                 break;
             }
             // If there is no piece in the way keep adding till limit of board
