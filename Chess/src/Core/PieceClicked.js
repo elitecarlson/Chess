@@ -1,6 +1,7 @@
 import { getValidRookMoves } from "./RookMovement";
 import { hideHints } from "./Constants";
 import { getValidBishopMoves } from "./BishopMovement";
+import { getValidQueenMoves } from "./QueenMovement";
 
 export function pieceClicked(board){
     const piecePosition = event.target.classList[1];
@@ -17,6 +18,8 @@ export function pieceClicked(board){
             getValidRookMoves(piecePosition,piece,board); //if piece is rook
         }else if(piece[1] == 'b'){
             getValidBishopMoves(piecePosition,piece,board); //if piece is bishop
+        }else if(piece[1] == 'q'){
+            getValidQueenMoves(piecePosition,piece,board); //if piece is queen
         }
     }
 }
