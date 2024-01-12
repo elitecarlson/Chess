@@ -2,6 +2,7 @@ import { getValidRookMoves } from "./RookMovement";
 import { hideHints } from "./Constants";
 import { getValidBishopMoves } from "./BishopMovement";
 import { getValidQueenMoves } from "./QueenMovement";
+import { getValidKnightMoves } from "./KnightMovement";
 
 export function pieceClicked(board){
     const piecePosition = event.target.classList[1];
@@ -20,6 +21,8 @@ export function pieceClicked(board){
             getValidBishopMoves(piecePosition,piece,board); //if piece is bishop
         }else if(piece[1] == 'q'){
             getValidQueenMoves(piecePosition,piece,board); //if piece is queen
+        }else if(piece[1] == 'n'){
+            getValidKnightMoves(piecePosition,piece,board); //if piece is knight
         }
     }
 }
