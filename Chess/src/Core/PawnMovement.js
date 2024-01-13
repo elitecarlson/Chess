@@ -10,11 +10,19 @@ export function getValidPawnMoves(position,piece,board,flipped) {
 
     // Calculate all front pawn moves
     if (pieceColor == "w" && startY == 1) {
-        pawnMoves.push(files[startX] + (startY + 3));
+        const currentPosition = files[startX] + (startY + 2);
+        const targetPiece = document.querySelector(flipped ? `.flipped-${currentPosition}` : `.${currentPosition}`);
+        if (targetPiece == null) {
+            pawnMoves.push(files[startX] + (startY + 3));
+        }
         pawnMoves.push(files[startX] + (startY + 2));
     }else if(pieceColor == "b" && startY == 6){
+        const currentPosition = files[startX] + (startY - 0);
+        const targetPiece = document.querySelector(flipped ? `.flipped-${currentPosition}` : `.${currentPosition}`);
+        if (targetPiece == null) {
+            pawnMoves.push(files[startX] + (startY - 1));
+        }
         pawnMoves.push(files[startX] + (startY - 0));
-        pawnMoves.push(files[startX] + (startY - 1));
     }else if(pieceColor == "w"){
         pawnMoves.push(files[startX] + (startY + 2));
     }else if(pieceColor == "b"){
