@@ -9,12 +9,19 @@ export function pieceClicked(board,flipped){
     const piecePosition = event.target.classList[1];
     const piece = event.target.classList[2];
     const selectedPiece = document.querySelector(`.${piecePosition}`);
+    const selectedPieces = document.querySelector(".selected");
 
-    // if selected piece is already selected deselect else select
-    if (selectedPiece.classList.contains("selected")) {
-        selectedPiece.classList.remove("selected");
+    // If already selected then deselect
+    if(selectedPiece.classList.contains("selected")){
+        selectedPieces.classList.remove("selected");
         hideHints();
     }else{
+        // Prevent selecting multiple pieces
+        if (selectedPieces) {
+            selectedPieces.classList.remove("selected");
+            hideHints();
+        }
+        // selected piece
         selectedPiece.classList.add("selected");
         if (piece[1] == 'r') {
             getValidRookMoves(piecePosition,piece,board,flipped); //if piece is rook
