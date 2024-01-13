@@ -1,42 +1,58 @@
 import { files, renderHints } from "./Constants";
 
-export function getValidPawnMoves(position,piece,board) {
-    const startX = files.indexOf(position[0]);
-    const startY = parseInt(position[1]) - 1;
+export function getValidPawnMoves(position,piece,board,flipped) {
+    const startX = flipped ? files.indexOf(position.split("-")[1][0]) : files.indexOf(position[0]);
+    const startY = flipped ? parseInt(position.split("-")[1][1]) - 1 : parseInt(position[1]) - 1;
     const validMoves = [];
+    const pawnMoves = [];
+    const pawnCaptures = [];
     const pieceColor = piece[0];
 
-    // Calculate legal moves for a pawn
-    const isFirstMove = [
-        pieceColor == "w" && startY == 1,
-        pieceColor == "b" && startY == 6
-    ];
-
-    if (pieceColor == "w") {
-        if (isFirstMove[0]) {
-            validMoves.push(files[startX] + (startY + 3));
-            validMoves.push(files[startX] + (startY + 2));
-        }else{
-            validMoves.push(files[startX] + (startY + 2));
-        }
+    // Calculate all front pawn moves
+    if (pieceColor == "w" && startY == 1) {
+        pawnMoves.push(files[startX] + (startY + 3));
+        pawnMoves.push(files[startX] + (startY + 2));
+    }else if(pieceColor == "b" && startY == 6){
+        pawnMoves.push(files[startX] + (startY - 0));
+        pawnMoves.push(files[startX] + (startY - 1));
+    }else if(pieceColor == "w"){
+        pawnMoves.push(files[startX] + (startY + 2));
     }else if(pieceColor == "b"){
-        if (isFirstMove[1]) {
-            validMoves.push(files[startX] + (startY - 0));
-            validMoves.push(files[startX] + (startY - 1));
-        }else{
-            validMoves.push(files[startX] + (startY - 0));
-        }
+        pawnMoves.push(files[startX] + (startY - 0));
     }
 
-    // Pawn captures diagonally
-    // Check if there is a piece to capture on the left diagonal
-    // if (file.charCodeAt(0) > 97) {
-    //   validMoves.push(String.fromCharCode(file.charCodeAt(0) - 1) + (rank + 1));
-    // }
+    // Calcualte all pawn captures
+    if (pieceColor == "w" && files[startX] == 'a') {
+        pawnCaptures.push(files[startX + 1] + (startY + 2));
+    }else if(pieceColor == "w" && files[startX] == 'h'){
+        pawnCaptures.push(files[startX - 1] + (startY + 2));
+    }else if(pieceColor == "w"){
+        pawnCaptures.push(files[startX - 1] + (startY + 2));
+        pawnCaptures.push(files[startX + 1] + (startY + 2));
+    }else if(pieceColor == "b" && files[startX] == 'a'){
+        pawnCaptures.push(files[startX + 1] + (startY - 0));
+    }else if(pieceColor == "b" && files[startX] == 'h'){
+        pawnCaptures.push(files[startX - 1] + (startY - 0));
+    }else if(pieceColor == "b"){
+        pawnCaptures.push(files[startX - 1] + (startY - 0));
+        pawnCaptures.push(files[startX + 1] + (startY - 0));
+    }
 
-    // // Check if there is a piece to capture on the right diagonal
-    // if (file.charCodeAt(0) < 104) {
-    //   validMoves.push(String.fromCharCode(file.charCodeAt(0) + 1) + (rank + 1));
-    // }
-    renderHints(validMoves,board,position);
+    // Calculate legal front moves
+    pawnMoves.forEach(move => {
+        const targetPiece = document.querySelector(flipped ? `.flipped-${move}` : `.${move}`);
+        if (targetPiece == null) {
+            validMoves.push(move);
+        }
+    });
+
+    // Calculate all legal captures
+    pawnCaptures.forEach(move => {
+        const targetPiece = document.querySelector(flipped ? `.flipped-${move}` : `.${move}`);
+        if (targetPiece != null && targetPiece.className.split(" ")[2][0] != pieceColor) {
+            validMoves.push(move);
+        }
+    });
+    
+    renderHints(validMoves,board,position,flipped);
 }
