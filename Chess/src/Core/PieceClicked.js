@@ -4,6 +4,7 @@ import { getValidBishopMoves } from "./BishopMovement";
 import { getValidQueenMoves } from "./QueenMovement";
 import { getValidKnightMoves } from "./KnightMovement";
 import { getValidPawnMoves } from "./PawnMovement";
+import { getValidKingMoves } from "./KingMovement";
 
 export function pieceClicked(board,flipped){
     const piecePosition = event.target.classList[1];
@@ -33,6 +34,8 @@ export function pieceClicked(board,flipped){
             getValidKnightMoves(piecePosition,piece,board,flipped); //if piece is knight
         }else if(piece[1] == 'p'){
             getValidPawnMoves(piecePosition,piece,board,flipped); //if piece is pawn
+        }else if(piece[1] == 'k'){
+            getValidKingMoves(piecePosition,piece,board,flipped); //if piece is king
         }
     }
 }
