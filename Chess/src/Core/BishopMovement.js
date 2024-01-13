@@ -1,8 +1,8 @@
 import { files, renderHints } from "./Constants";
 
-export function getValidBishopMoves(position,piece,board){
-    const startX = files.indexOf(position[0]);
-    const startY = parseInt(position[1]) - 1;
+export function getValidBishopMoves(position,piece,board,flipped) {
+    const startX = flipped ? files.indexOf(position.split("-")[1][0]) : files.indexOf(position[0]);
+    const startY = flipped ? parseInt(position.split("-")[1][1]) - 1 : parseInt(position[1]) - 1;
     const validMoves = [];
     const pieceColor = piece[0];
     
@@ -19,7 +19,7 @@ export function getValidBishopMoves(position,piece,board){
 
         while (x >= 0 && x < 8 && y >= 0 && y < 8) {
             const currentPosition = files[x] + (y + 1);
-            const targetPiece = document.querySelector(`.${currentPosition}`);
+            const targetPiece = document.querySelector(flipped ? `.flipped-${currentPosition}` : `.${currentPosition}`);
 
             // Runs when there is piece in the way
             if (targetPiece != null) {
@@ -38,5 +38,5 @@ export function getValidBishopMoves(position,piece,board){
         }
     }
     
-    renderHints(validMoves,board,position);
+    renderHints(validMoves,board,position,flipped);
 }

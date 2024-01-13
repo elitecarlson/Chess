@@ -8,23 +8,25 @@ export function hideHints(){
         });
 }
 
-export function renderHints(validMoves,board,position){
+export function renderHints(validMoves,board,position,flipped){
     validMoves.forEach(validMove => {
         const hint = document.createElement('div');
-        hint.className = `hint ${validMove}`;
-        hint.addEventListener('click', ()=>{hintClicked(position,validMove)});
+        const actualPostion = flipped ? `flipped-${validMove}` : validMove;
+        hint.className = `hint ${actualPostion}`;
+        hint.addEventListener('click', ()=>{hintClicked(position,validMove,flipped)});
         board.current.appendChild(hint);
     });
 }
 
-function hintClicked(position,hintPosition){
-    const opponentPiece = document.getElementsByClassName(`piece ${hintPosition}`)[0];
+function hintClicked(position,hintPosition,flipped){
+    const actualPostion = flipped ? `flipped-${hintPosition}` : hintPosition;
+    const opponentPiece = document.getElementsByClassName(`piece ${actualPostion}`)[0];
     if (opponentPiece) {
         CapturedPieces.push(opponentPiece.classList[2]);
         opponentPiece.remove();
     }
     const selectedPiece = document.querySelector(`.${position}`);
-    selectedPiece.classList.replace(position,hintPosition);
+    selectedPiece.classList.replace(position,actualPostion);
     selectedPiece.classList.remove("selected");
     hideHints();
 }

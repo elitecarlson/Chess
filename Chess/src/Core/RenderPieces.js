@@ -41,7 +41,7 @@ export function RenderPieces(board,startingPosition,flipped){
 
                 // Adding the piece to board
                 const pieceDiv = document.createElement("div");
-                pieceDiv.addEventListener('click', ()=>{pieceClicked(board)});
+                pieceDiv.addEventListener('click', ()=>{pieceClicked(board,flipped)});
                 pieceDiv.className = piececlassName;
                 board.current.appendChild(pieceDiv);
                 file++;
