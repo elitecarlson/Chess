@@ -14,6 +14,11 @@ export function renderHints(validMoves,board,position,flipped){
         const actualPostion = flipped ? `flipped-${validMove}` : validMove;
         hint.className = `hint ${actualPostion}`;
         hint.addEventListener('click', ()=>{hintClicked(position,validMove,flipped)});
+        hint.addEventListener('dragover', (e)=>{e.preventDefault()})
+        hint.addEventListener('drop', ()=>{
+            hintClicked(position,validMove,flipped);
+            document.querySelector('.'+validMove).style.transition = "0s";
+        });
         board.current.appendChild(hint);
     });
 }

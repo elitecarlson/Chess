@@ -10,7 +10,7 @@
     display: block;
     position: absolute;
     background-size: cover;
-    cursor: pointer;
+    cursor: grab;
     width: 64px;
     height: 64px;
     transition: 0.3s;
