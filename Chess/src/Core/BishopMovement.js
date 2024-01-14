@@ -4,6 +4,7 @@ export function getValidBishopMoves(position,piece,board,flipped) {
     const startX = flipped ? files.indexOf(position.split("-")[1][0]) : files.indexOf(position[0]);
     const startY = flipped ? parseInt(position.split("-")[1][1]) - 1 : parseInt(position[1]) - 1;
     const validMoves = [];
+    const validCaptures = [];
     const pieceColor = piece[0];
     
     const directions = [
@@ -25,7 +26,7 @@ export function getValidBishopMoves(position,piece,board,flipped) {
             if (targetPiece != null) {
                 // Checking if piece is opponent
                 if (targetPiece.className.split(" ")[2][0] != pieceColor) {
-                    validMoves.push(currentPosition);
+                    validCaptures.push(currentPosition);
                 }
                 // Stop if piece is ours
                 break;
@@ -38,5 +39,5 @@ export function getValidBishopMoves(position,piece,board,flipped) {
         }
     }
     
-    renderHints(validMoves,board,position,flipped);
+    renderHints(validMoves,validCaptures,board,position,flipped);
 }

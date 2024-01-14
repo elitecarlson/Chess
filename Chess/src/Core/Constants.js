@@ -2,13 +2,35 @@ export const files = ['a','b','c','d','e','f','g','h'];
 export const CapturedPieces = [];
 
 export function hideHints(){
+    // Remove hints
     const visibleHints = document.querySelectorAll('.hint');
-        visibleHints.forEach(hint => {
-            hint.remove();
-        });
+    visibleHints.forEach(hint => {
+        hint.remove();
+    });
+
+    // Remove captures
+    const visibleCaptures = document.querySelectorAll('.capture');
+    visibleCaptures.forEach(capture => {
+        capture.remove();
+    })
 }
 
-export function renderHints(validMoves,board,position,flipped){
+export function renderHints(validMoves,validCaptures,board,position,flipped){
+    // Render Captureable piece
+    validCaptures.forEach(validCapture => {
+        const capture = document.createElement('div');
+        const actualPostion = flipped ? `flipped-${validCapture}` : validCapture;
+        capture.className = `capture ${actualPostion}`;
+        capture.addEventListener('click', ()=>{hintClicked(position,validCapture,flipped)});
+        capture.addEventListener('dragover', (e)=>{e.preventDefault()})
+        capture.addEventListener('drop', ()=>{
+            hintClicked(position,validCapture,flipped);
+            document.querySelector('.'+validCapture).style.transition = "0s";
+        });
+        board.current.appendChild(capture);
+    });
+
+    // Render available hint positions
     validMoves.forEach(validMove => {
         const hint = document.createElement('div');
         const actualPostion = flipped ? `flipped-${validMove}` : validMove;

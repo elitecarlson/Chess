@@ -24,6 +24,15 @@
     height: 64px;
     background-color: rgba(255, 0, 0, 0.514);
 }
+.capture{
+    display: block;
+    position: absolute;
+    background-size: cover;
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(43, 255, 0, 0.514);
+}
 .selected{
     display: block;
     position: absolute;

@@ -4,6 +4,7 @@ export function getValidKnightMoves(position,piece,board,flipped) {
     const startX = flipped ? files.indexOf(position.split("-")[1][0]) : files.indexOf(position[0]);
     const startY = flipped ? parseInt(position.split("-")[1][1]) - 1 : parseInt(position[1]) - 1;
     const validMoves = [];
+    const validCaptures = [];
     const pieceColor = piece[0];
 
     const directions = [
@@ -25,11 +26,13 @@ export function getValidKnightMoves(position,piece,board,flipped) {
         if (x >= 0 && x < 8 && y >= 0 && y < 8) {
             const currentPosition = files[x] + (y + 1);
             const targetPiece = document.querySelector(flipped ? `.flipped-${currentPosition}` : `.${currentPosition}`);
-            if (targetPiece == null || targetPiece.className.split(" ")[2][0] != pieceColor) {
+            if (targetPiece == null){
                 validMoves.push(currentPosition);
+            }else if(targetPiece.className.split(" ")[2][0] != pieceColor) {
+                validCaptures.push(currentPosition);
             }
         }
     }
 
-    renderHints(validMoves,board,position,flipped);
+    renderHints(validMoves,validCaptures,board,position,flipped);
 }

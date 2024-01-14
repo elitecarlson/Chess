@@ -6,6 +6,7 @@ export function getValidPawnMoves(position,piece,board,flipped) {
     const validMoves = [];
     const pawnMoves = [];
     const pawnCaptures = [];
+    const validCaptures = [];
     const pieceColor = piece[0];
 
     // Calculate all front pawn moves
@@ -58,9 +59,9 @@ export function getValidPawnMoves(position,piece,board,flipped) {
     pawnCaptures.forEach(move => {
         const targetPiece = document.querySelector(flipped ? `.flipped-${move}` : `.${move}`);
         if (targetPiece != null && targetPiece.className.split(" ")[2][0] != pieceColor) {
-            validMoves.push(move);
+            validCaptures.push(move);
         }
     });
     
-    renderHints(validMoves,board,position,flipped);
+    renderHints(validMoves,validCaptures,board,position,flipped);
 }
