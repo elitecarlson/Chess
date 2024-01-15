@@ -2,6 +2,7 @@ export const files = ['a','b','c','d','e','f','g','h'];
 export const CapturedPieces = [];
 const moves = [];
 
+//Remove all hints and capture hints
 export function hideHints(){
     // Remove hints
     const visibleHints = document.querySelectorAll('.hint');
@@ -16,6 +17,7 @@ export function hideHints(){
     })
 }
 
+// Show hints
 export function renderHints(validMoves,validCaptures,board,position,flipped){
     // Render Captureable piece
     validCaptures.forEach(validCapture => {
@@ -46,6 +48,7 @@ export function renderHints(validMoves,validCaptures,board,position,flipped){
     });
 }
 
+// Runs when hint is clicked or piece is dropped on hint
 function hintActivated(position,hintPosition,flipped){
     const actualPostion = flipped ? `flipped-${hintPosition}` : hintPosition;
     const opponentPiece = document.getElementsByClassName(`piece ${actualPostion}`)[0];
