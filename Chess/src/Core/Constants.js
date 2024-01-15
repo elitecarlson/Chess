@@ -1,5 +1,6 @@
 export const files = ['a','b','c','d','e','f','g','h'];
 export const CapturedPieces = [];
+const moves = [];
 
 export function hideHints(){
     // Remove hints
@@ -21,10 +22,10 @@ export function renderHints(validMoves,validCaptures,board,position,flipped){
         const capture = document.createElement('div');
         const actualPostion = flipped ? `flipped-${validCapture}` : validCapture;
         capture.className = `capture ${actualPostion}`;
-        capture.addEventListener('click', ()=>{hintClicked(position,validCapture,flipped)});
+        capture.addEventListener('click', ()=>{hintActivated(position,validCapture,flipped)});
         capture.addEventListener('dragover', (e)=>{e.preventDefault()})
         capture.addEventListener('drop', ()=>{
-            hintClicked(position,validCapture,flipped);
+            hintActivated(position,validCapture,flipped);
             document.querySelector('.'+validCapture).style.transition = "0s";
         });
         board.current.appendChild(capture);
@@ -35,25 +36,43 @@ export function renderHints(validMoves,validCaptures,board,position,flipped){
         const hint = document.createElement('div');
         const actualPostion = flipped ? `flipped-${validMove}` : validMove;
         hint.className = `hint ${actualPostion}`;
-        hint.addEventListener('click', ()=>{hintClicked(position,validMove,flipped)});
+        hint.addEventListener('click', ()=>{hintActivated(position,validMove,flipped)});
         hint.addEventListener('dragover', (e)=>{e.preventDefault()})
         hint.addEventListener('drop', ()=>{
-            hintClicked(position,validMove,flipped);
+            hintActivated(position,validMove,flipped);
             document.querySelector('.'+validMove).style.transition = "0s";
         });
         board.current.appendChild(hint);
     });
 }
 
-function hintClicked(position,hintPosition,flipped){
+function hintActivated(position,hintPosition,flipped){
     const actualPostion = flipped ? `flipped-${hintPosition}` : hintPosition;
     const opponentPiece = document.getElementsByClassName(`piece ${actualPostion}`)[0];
-    if (opponentPiece) {
-        CapturedPieces.push(opponentPiece.classList[2]);
-        opponentPiece.remove();
-    }
     const selectedPiece = document.querySelector(`.${position}`);
+    addToMoves(opponentPiece,selectedPiece,actualPostion);
     selectedPiece.classList.replace(position,actualPostion);
     selectedPiece.classList.remove("selected");
     hideHints();
+}
+
+// Add move to moves array
+function addToMoves(opponentPiece,selectedPiece,actualPostion){
+    let move
+    if (opponentPiece) {
+        CapturedPieces.push(opponentPiece.classList[2]);
+        if(selectedPiece.classList[2][1] == "p"){
+            move = `${selectedPiece.classList[1][0]}x${actualPostion}`
+        }else{
+            move = `${selectedPiece.classList[2][1].toUpperCase()}x${actualPostion}`;
+        }
+        opponentPiece.remove();
+    }else{
+        if(selectedPiece.classList[2][1] == "p"){
+            move = actualPostion;
+        }else{
+            move = selectedPiece.classList[2][1].toUpperCase()+actualPostion;
+        }
+    }
+    moves.push(move);
 }
