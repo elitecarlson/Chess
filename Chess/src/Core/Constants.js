@@ -28,7 +28,7 @@ export function renderHints(validMoves,validCaptures,board,position,flipped){
         capture.addEventListener('dragover', (e)=>{e.preventDefault()})
         capture.addEventListener('drop', ()=>{
             hintActivated(position,validCapture,flipped);
-            document.querySelector('.'+validCapture).style.transition = "0s";
+            document.querySelector('.'+actualPostion).style.transition = "0s";
         });
         board.current.appendChild(capture);
     });
@@ -42,7 +42,7 @@ export function renderHints(validMoves,validCaptures,board,position,flipped){
         hint.addEventListener('dragover', (e)=>{e.preventDefault()})
         hint.addEventListener('drop', ()=>{
             hintActivated(position,validMove,flipped);
-            document.querySelector('.'+validMove).style.transition = "0s";
+            document.querySelector('.'+actualPostion).style.transition = "0s";
         });
         board.current.appendChild(hint);
     });
