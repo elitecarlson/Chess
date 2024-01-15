@@ -53,15 +53,22 @@ function hintActivated(position,hintPosition,flipped){
     const actualPostion = flipped ? `flipped-${hintPosition}` : hintPosition;
     const opponentPiece = document.getElementsByClassName(`piece ${actualPostion}`)[0];
     const selectedPiece = document.querySelector(`.${position}`);
-    addToMoves(opponentPiece,selectedPiece,actualPostion);
+    addToMoves(opponentPiece,selectedPiece,actualPostion,flipped);
     selectedPiece.classList.replace(position,actualPostion);
     selectedPiece.classList.remove("selected");
     hideHints();
 }
 
 // Add move to moves array
-function addToMoves(opponentPiece,selectedPiece,actualPostion){
-    let move
+function addToMoves(opponentPiece,selectedPiece,Postion,flipped){
+    let move,actualPostion
+
+    if (flipped) {
+        actualPostion = Postion.split("-")[1];
+    }else{
+        actualPostion = Postion;
+    }
+
     if (opponentPiece) {
         CapturedPieces.push(opponentPiece.classList[2]);
         if(selectedPiece.classList[2][1] == "p"){
