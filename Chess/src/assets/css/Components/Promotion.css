@@ -1,0 +1,57 @@
+.PromotionDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 69px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: rgb(255, 255, 255);
+}
+.promotion-piece{
+    display: block;
+    background-size: cover;
+    width: 69px;
+    height: 69px;
+    cursor: pointer;
+}
+.closeBTN{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(231, 231, 231);
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+.closingBUTTON{
+    display: block;
+    width: 13px;
+    height: 13px;
+    margin: 10px;
+    background-size: cover;
+    background-image: url(../../icons/delete.png);
+}
+.white-queen{
+    background-image: url(../../Boards-and-pieces/Pieces/wq.png);
+}
+.white-rook{
+    background-image: url(../../Boards-and-pieces/Pieces/wr.png);
+}
+.white-bishop{
+    background-image: url(../../Boards-and-pieces/Pieces/wb.png);
+}
+.white-knight{
+    background-image: url(../../Boards-and-pieces/Pieces/wn.png);
+}
+.black-queen{
+    background-image: url(../../Boards-and-pieces/Pieces/bq.png);
+}
+.black-rook{
+    background-image: url(../../Boards-and-pieces/Pieces/br.png);
+}
+.black-bishop{
+    background-image: url(../../Boards-and-pieces/Pieces/bb.png);
+}
+.black-knight{
+    background-image: url(../../Boards-and-pieces/Pieces/bn.png);
+}
