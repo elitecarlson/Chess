@@ -1,6 +1,6 @@
 .board{
     position: relative;
-    height: 512px;
+    height: 552px;
     aspect-ratio: 1 / 1;
     border-radius: 8px;
     background-size: cover;
@@ -11,8 +11,8 @@
     position: absolute;
     background-size: cover;
     cursor: grab;
-    width: 64px;
-    height: 64px;
+    width: 69px;
+    height: 69px;
     transition: 0.3s;
 }
 .hint{
@@ -20,8 +20,8 @@
     position: absolute;
     background-size: cover;
     cursor: pointer;
-    width: 64px;
-    height: 64px;
+    width: 69px;
+    height: 69px;
     background-color: rgba(255, 0, 0, 0.514);
 }
 .capture{
@@ -29,8 +29,8 @@
     position: absolute;
     background-size: cover;
     cursor: pointer;
-    width: 64px;
-    height: 64px;
+    width: 69px;
+    height: 69px;
     background-color: rgba(43, 255, 0, 0.514);
 }
 .selected{
@@ -38,9 +38,12 @@
     position: absolute;
     background-size: cover;
     cursor: pointer;
-    width: 64px;
-    height: 64px;
+    width: 69px;
+    height: 69px;
     /* background-color: rgba(255, 251, 0, 0.514); */
+}
+.no-transition{
+    transition: 0s;
 }
 /* Black Pieces */
 .bb{
