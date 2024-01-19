@@ -12,6 +12,11 @@ export function pieceClicked(board,flipped){
     const selectedPiece = document.querySelector(`.${piecePosition}`);
     const selectedPieces = document.querySelector(".selected");
 
+    if (document.querySelector('.PromotionDiv')) {
+        document.querySelector('.PromotionDiv').remove();
+        document.querySelector('.hidden').classList.remove("hidden");   
+    }
+
     // If already selected then deselect
     if(selectedPiece.classList.contains("selected")){
         selectedPieces.classList.remove("selected");

@@ -63,5 +63,5 @@ export function getValidPawnMoves(position,piece,board,flipped) {
         }
     });
     
-    renderHints(validMoves,validCaptures,board,position,flipped);
+    renderHints(validMoves,validCaptures,board,position,flipped,piece);
 }
