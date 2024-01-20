@@ -31,7 +31,6 @@ export function renderHints(validMoves,validCaptures,board,position,flipped,piec
         capture.addEventListener('dragover', (e)=>{e.preventDefault()})
         capture.addEventListener('drop', ()=>{
             hintActivated(position,validCapture,flipped,piece,board);
-            document.querySelector('.'+actualPostion).style.transition = "0s";
         });
         board.current.appendChild(capture);
     });
