@@ -1,4 +1,4 @@
-import { files, renderHints } from "./Constants";
+import { enpassant, files, renderHints } from "./Constants";
 
 export function getValidPawnMoves(position,piece,board,flipped) {
     const startX = flipped ? files.indexOf(position.split("-")[1][0]) : files.indexOf(position[0]);
@@ -59,6 +59,9 @@ export function getValidPawnMoves(position,piece,board,flipped) {
     pawnCaptures.forEach(move => {
         const targetPiece = document.querySelector(flipped ? `.flipped-${move}` : `.${move}`);
         if (targetPiece != null && targetPiece.className.split(" ")[2][0] != pieceColor) {
+            validCaptures.push(move);
+        }
+        if (move == enpassant && startY != "6" && startY != "1") {
             validCaptures.push(move);
         }
     });
