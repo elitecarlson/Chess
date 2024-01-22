@@ -43,13 +43,13 @@ export function RenderPieces(board,startingPosition,flipped){
                 const pieceDiv = document.createElement("div");
                 pieceDiv.draggable = true;
                 pieceDiv.addEventListener('dragstart', ()=>{
-                    pieceClicked(board, flipped);
+                    pieceClicked(board,flipped,startingPosition);
                     pieceDiv.classList.add("no-transition");
                 });
                 pieceDiv.addEventListener('dragend', ()=>{
                     pieceDiv.classList.remove("no-transition");
                 })
-                pieceDiv.addEventListener('click', ()=>{pieceClicked(board,flipped)});
+                pieceDiv.addEventListener('click', ()=>{pieceClicked(board,flipped,startingPosition)});
                 pieceDiv.className = piececlassName;
                 board.current.appendChild(pieceDiv);
                 file++;

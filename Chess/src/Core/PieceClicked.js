@@ -6,7 +6,7 @@ import { getValidKnightMoves } from "./KnightMovement";
 import { getValidPawnMoves } from "./PawnMovement";
 import { getValidKingMoves } from "./KingMovement";
 
-export function pieceClicked(board,flipped){
+export function pieceClicked(board,flipped,startingPosition){
     const piecePosition = event.target.classList[1];
     const piece = event.target.classList[2];
     const selectedPiece = document.querySelector(`.${piecePosition}`);
@@ -40,7 +40,7 @@ export function pieceClicked(board,flipped){
         }else if(piece[1] == 'p'){
             getValidPawnMoves(piecePosition,piece,board,flipped); //if piece is pawn
         }else if(piece[1] == 'k'){
-            getValidKingMoves(piecePosition,piece,board,flipped); //if piece is king
+            getValidKingMoves(piecePosition,piece,board,flipped,startingPosition); //if piece is king
         }
     }
 }

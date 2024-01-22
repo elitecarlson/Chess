@@ -68,6 +68,41 @@ function hintActivated(position,hintPosition,flipped,piece,board){
         }else{
             PlayMove(flipped,hintPosition,position,piece);
         }
+        // Check if piece is king
+    }else if (piece[1] == "k") {
+        if (piece[0] == "w") {
+            if (hintPosition == "g1") {
+                PlayMove(flipped,hintPosition,position,piece);
+                const h1 = flipped ? "flipped-h1" : "h1";
+                const f1 = flipped ? "flipped-f1" : "f1";
+                const h1Rook = document.querySelector(`.${h1}`);
+                h1Rook.classList.replace(h1,f1);
+            }else if(hintPosition == "b1" || hintPosition == "c1"){
+                PlayMove(flipped,"c1",position,piece);
+                const a1 = flipped ? "flipped-a1" : "a1";
+                const d1 = flipped ? "flipped-d1" : "d1";
+                const a1Rook = document.querySelector(`.${a1}`);
+                a1Rook.classList.replace(a1,d1);
+            }else{
+                PlayMove(flipped,hintPosition,position,piece);
+            }
+        }else if(piece[0] == "b"){
+            if (hintPosition == "g8") {
+                PlayMove(flipped,hintPosition,position,piece);
+                const h8 = flipped ? "flipped-h8" : "h8";
+                const f8 = flipped ? "flipped-f8" : "f8";
+                const h8Rook = document.querySelector(`.${h8}`);
+                h8Rook.classList.replace(h8,f8);
+            }else if(hintPosition == "b8" || hintPosition == "c8"){
+                PlayMove(flipped,"c8",position,piece);
+                const a8 = flipped ? "flipped-a8" : "a8";
+                const d8 = flipped ? "flipped-d8" : "d8";
+                const a8Rook = document.querySelector(`.${a8}`);
+                a8Rook.classList.replace(a8,d8);
+            }else{
+                PlayMove(flipped,hintPosition,position,piece);
+            }
+        }
     }else{
         PlayMove(flipped,hintPosition,position,piece);
     }
