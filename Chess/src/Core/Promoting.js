@@ -47,7 +47,7 @@ export default function pawnPromotion(piece,board,hintPosition,flipped,position)
             promotedPiece.draggable = true;
             promotedPiece.className = `piece ${actualPosition} ${color[0]}${piecePromotionJSON[piece]}`;
             promotedPiece.addEventListener('dragstart', ()=>{
-                pieceClicked(board, flipped);
+                pieceClicked(board,flipped);
                 promotedPiece.classList.add("no-transition");
             });
             promotedPiece.addEventListener('dragend', ()=>{

@@ -5,6 +5,7 @@ export default function PlayMove(flipped,hintPosition,position,piece) {
     const actualPostion = flipped ? `flipped-${hintPosition}` : hintPosition;
     const opponentPiece = document.getElementsByClassName(`piece ${actualPostion}`)[0];
     const selectedPiece = document.querySelector(`.${position}`);
+    
     // Capture by enpassant
     if (piece[1] == "p" && hintPosition == enpassant) {
         const enpassantCapture = piece[0] == "w" ? enpassant[0]+(parseInt(enpassant[1])-1) : enpassant[0]+(parseInt(enpassant[1])+1);
