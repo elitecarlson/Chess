@@ -1,7 +1,10 @@
 import { pieceClicked } from "./PieceClicked";
 import { files } from "./Constants";
 
+export let castlingRights;
+export function setCastlingRights( value ) { castlingRights = value; }
 export function RenderPieces(board,startingPosition,flipped){
+    setCastlingRights(startingPosition.split(" ")[2]);
     const pieceFEN = {
         "r" : "br",
         "n" : "bn",
@@ -43,13 +46,13 @@ export function RenderPieces(board,startingPosition,flipped){
                 const pieceDiv = document.createElement("div");
                 pieceDiv.draggable = true;
                 pieceDiv.addEventListener('dragstart', ()=>{
-                    pieceClicked(board,flipped,startingPosition);
+                    pieceClicked(board,flipped);
                     pieceDiv.classList.add("no-transition");
                 });
                 pieceDiv.addEventListener('dragend', ()=>{
                     pieceDiv.classList.remove("no-transition");
                 })
-                pieceDiv.addEventListener('click', ()=>{pieceClicked(board,flipped,startingPosition)});
+                pieceDiv.addEventListener('click', ()=>{pieceClicked(board,flipped)});
                 pieceDiv.className = piececlassName;
                 board.current.appendChild(pieceDiv);
                 file++;

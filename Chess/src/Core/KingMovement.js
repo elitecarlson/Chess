@@ -1,12 +1,12 @@
 import { files, renderHints } from "./Constants";
+import { castlingRights } from "./RenderPieces";
 
-export function getValidKingMoves(position,piece,board,flipped,startingPosition) {
+export function getValidKingMoves(position,piece,board,flipped) {
     const startX = flipped ? files.indexOf(position.split("-")[1][0]) : files.indexOf(position[0]);
     const startY = flipped ? parseInt(position.split("-")[1][1]) - 1 : parseInt(position[1]) - 1;
     const validMoves = [];
     const validCaptures = [];
     const pieceColor = piece[0];
-    const castlingRights = startingPosition.split(" ")[2];
 
     // Castling logic
     if (castlingRights != "-") {
