@@ -1,7 +1,6 @@
 import { kingCastling, rookMovementCastlingRights } from "./Castling";
 import PlayMove from "./PlayMove";
 import pawnPromotion from "./Promoting";
-import { castlingRights, setCastlingRights } from "./RenderPieces";
 
 export const files = ['a','b','c','d','e','f','g','h'];
 export const CapturedPieces = [];

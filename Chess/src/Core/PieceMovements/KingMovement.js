@@ -1,5 +1,5 @@
-import { files, renderHints } from "./Constants";
-import { castlingRights } from "./RenderPieces";
+import { files, renderHints } from "../Constants";
+import { castlingRights } from "../RenderPieces";
 
 export function getValidKingMoves(position,piece,board,flipped) {
     const startX = flipped ? files.indexOf(position.split("-")[1][0]) : files.indexOf(position[0]);

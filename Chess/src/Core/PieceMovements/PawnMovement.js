@@ -1,4 +1,4 @@
-import { enpassant, files, renderHints } from "./Constants";
+import { enpassant, files, renderHints } from "../Constants";
 
 export function getValidPawnMoves(position,piece,board,flipped) {
     const startX = flipped ? files.indexOf(position.split("-")[1][0]) : files.indexOf(position[0]);

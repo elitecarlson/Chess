@@ -1,10 +1,10 @@
-import { getValidRookMoves } from "./RookMovement";
+import { getValidRookMoves } from "./PieceMovements/RookMovement";
 import { hideHints } from "./Constants";
-import { getValidBishopMoves } from "./BishopMovement";
-import { getValidQueenMoves } from "./QueenMovement";
-import { getValidKnightMoves } from "./KnightMovement";
-import { getValidPawnMoves } from "./PawnMovement";
-import { getValidKingMoves } from "./KingMovement";
+import { getValidBishopMoves } from "./PieceMovements/BishopMovement";
+import { getValidQueenMoves } from "./PieceMovements/QueenMovement";
+import { getValidKnightMoves } from "./PieceMovements/KnightMovement";
+import { getValidPawnMoves } from "./PieceMovements/PawnMovement";
+import { getValidKingMoves } from "./PieceMovements/KingMovement";
 
 export function pieceClicked(board,flipped){
     const piecePosition = event.target.classList[1];
